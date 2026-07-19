@@ -46,10 +46,12 @@
 
 
 ### 5. Text Processing & Redirection
+* Redirection: > (overwrite), >> (append)
+* Grep: grep (search), -i (ignore case), -v (invert match)
 * `>` : Overwrites data into a file. (e.g., `echo "Hello" > file.txt`)
 * `>>` : Appends data to a file. (e.g., `echo "Next line" >> file.txt`)
 * `grep` : Searches for a specific pattern in a file or stream.
-  * `grep -i` : Search ignoring case sensitivity.
-  * `grep -v` : Displays lines that do *not* contain the pattern.
+* `grep -i` : Search ignoring case sensitivity.(ignore capital or small letters at the time of searching a give the output)
+* `grep -v` : Displays lines that do *not* contain the pattern.
 * `|` (Pipe) : Passes the output of one command as input to another.
-  * *Example:* `ps aux | grep "root"` (Filters root processes from running processes).
+* *Example:* `ps aux | grep "root"` (Filters root processes from running processes).
