@@ -43,3 +43,13 @@
   * *Example:* `sudo chown root readme.md`
 * **Change Group (`chgrp`):** Changes the group ownership of a file/folder.
   * *Example:* `sudo chgrp adm readme.md`
+
+
+### 5. Text Processing & Redirection
+* `>` : Overwrites data into a file. (e.g., `echo "Hello" > file.txt`)
+* `>>` : Appends data to a file. (e.g., `echo "Next line" >> file.txt`)
+* `grep` : Searches for a specific pattern in a file or stream.
+  * `grep -i` : Search ignoring case sensitivity.
+  * `grep -v` : Displays lines that do *not* contain the pattern.
+* `|` (Pipe) : Passes the output of one command as input to another.
+  * *Example:* `ps aux | grep "root"` (Filters root processes from running processes).
