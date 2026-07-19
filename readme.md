@@ -28,7 +28,18 @@
   * **Others (Last 3):** Permissions for all other users on the system (`r-x`).
 * Permission Types: `r` = Read, `w` = Write, `x` = Execute.
 
-### 3. Changing Permissions
-* `chmod` (Change Mode) command is used to modify file permissions.
-* In DevOps, we use this to make automation scripts executable.
-  * *Example:* `chmod +x readme.md`
+
+### 3. Modifying Permissions (`chmod`)
+* **Symbolic Mode:** Uses letters to change permissions.
+  * *Example:* `chmod +x readme.md` (Adds execute permission).
+* **Numeric / Octal Mode:** Uses numbers where `r=4`, `w=2`, `x=1`, and `-=0`.
+  * *Example:* `chmod 755 readme.md` (Owner=rwx (7), Group=rx (5), Others=rx (5)).
+  * *Example:* `chmod 600 readme.md` (Owner=rw (6), Group/Others=none (0) - Used for private keys).
+* **Recursive Mode (`-R`):** Applies permissions to a folder and all its sub-folders/files simultaneously.
+  * *Example:* `sudo chmod -R 755 /path/to/folder`
+
+### 4. Modifying Ownership & Groups (`chown`, `chgrp`)
+* **Change Owner (`chown`):** Changes the user ownership of a file/folder.
+  * *Example:* `sudo chown root readme.md`
+* **Change Group (`chgrp`):** Changes the group ownership of a file/folder.
+  * *Example:* `sudo chgrp adm readme.md`
