@@ -1,0 +1,106 @@
+Module: Month 1 - Phase 1: Linux Fundamentals & Administration
+
+DAY 1–3: Linux OS Basics & File/Directory Operations
+1. Introduction to Linux & Navigation
+pwd (Print Working Directory): మీరు ప్రస్తుతం ఏ ఫోల్డర్‌లో (Directory) ఉన్నారో ఆ పూర్తి దారిని (Path) చూపుతుంది.
+
+cd (Change Directory): ఒక ఫోల్డర్ నుండి మరో ఫోల్డర్‌లోకి మారడానికి వాడతారు.
+
+cd ~ లేదా కేవలం cd: యూజర్ హోమ్ డైరెక్టరీకి వెళ్తుంది.
+
+cd ..: ఒక స్టెప్ వెనక్కి (Parent Directory) వెళ్తుంది.
+
+ls (List): ఒక ఫోల్డర్ లోపల ఉన్న ఫైల్స్ మరియు డైరెక్టరీలను చూపిస్తుంది.
+
+ls -l: వివరాలతో కూడిన లిస్ట్ (Permissions, Owner, Size, Date) చూపుతుంది.
+
+ls -a: హిడెన్ (Hidden) ఫైల్స్‌తో సహా అన్నీ చూపుతుంది.
+
+2. File & Directory Operations
+mkdir (Make Directory): కొత్త ఫోల్డర్‌ను క్రియేట్ చేయడానికి వాడతారు.
+
+ఉదాహరణ: mkdir -p devops-learning/my_project (-p ద్వారా పేరెంట్ ఫోల్డర్లు లేకపోతే ఆటోమేటిక్‌గా క్రియేట్ అవుతాయి).
+
+touch: ఎలాంటి కంటెంట్ లేని ఖాళీ ఫైల్‌ను సృష్టిస్తుంది.
+
+ఉదాహరణ: touch file1.txt
+
+cp (Copy): ఫైల్స్ లేదా ఫోల్డర్‌లను కాపీ చేయడానికి.
+
+ఉదాహరణ: cp file1.txt file_backup.txt
+
+mv (Move/Rename): ఫైల్స్‌ను వేరే చోటికి మార్చడానికి లేదా పేరు మార్చడానికి (Rename).
+
+ఉదాహరణ: mv file1.txt new_name.txt
+
+rm (Remove): ఫైల్స్ లేదా ఫోల్డర్‌లను డిలీట్ చేయడానికి.
+
+ఉదాహరణ: rm -r folder_name (-r అంటే Recursive, ఫోల్డర్ లోపల ఉన్నవాటితో సహా డిలీట్ చేస్తుంది).
+
+DAY 4–6: Permissions & Security, Users, Groups
+1. File Permissions (chmod)
+లైనక్స్‌లో ప్రతి ఫైల్‌కు ముగ్గురికి పర్మిషన్లు ఉంటాయి: User (u), Group (g), Others (o).
+
+పర్మిషన్ రకాలు: Read (r = 4), Write (w = 2), Execute (x = 1).
+
+chmod (Change Mode):
+
+సింబాలిక్ పద్ధతి: chmod u+x script.sh (యూజర్‌కి ఎగ్జిక్యూట్ పర్మిషన్ ఇవ్వడం).
+
+న్యూమరిక్ (Octal) పద్ధతి: chmod 755 script.sh (Owner కి Read/Write/Execute = 7, మిగతా వారికి Read/Execute = 5).
+
+2. Ownership & Security (chown, umask)
+chown (Change Owner): ఒక ఫైల్ లేదా ఫోల్డర్ యొక్క ఓనర్‌ని మార్చడానికి వాడతారు.
+
+ఉదాహరణ: sudo chown rahul:developers file1.txt (యూజర్: rahul, గ్రూప్: developers).
+
+umask: కొత్తగా క్రియేట్ చేసే ఫైల్స్‌కి డీఫాల్ట్‌గా పర్మిషన్లను సెట్ చేయడానికి ఇది ఉపయోగపడుతుంది.
+
+3. Users, Groups & Root Privileges
+/etc/passwd: సిస్టమ్‌లో ఉన్న అన్ని యూజర్ల వివరాలు ఈ ఫైల్‌లో స్టోర్ అయి ఉంటాయి.
+
+/etc/group: సిస్టమ్‌లోని గ్రూప్‌ల వివరాలుంటాయి.
+
+sudo (Superuser Do): సాధారణ యూజర్‌కి అడ్మినిస్ట్రేటర్ (Root) పవర్స్‌తో కమాండ్స్ రన్ చేయడానికి ఇది వాడతారు.
+
+యూజర్ల నిర్వహణ కమాండ్స్:
+
+sudo useradd username (కొత్త యూజర్ సృష్టి)
+
+sudo passwd username (పాస్‌వర్డ్ సెట్ చేయడం)
+
+DAY 7–9: Text Processing, Editors, Pipes & Redirection
+1. Text Viewers & Editors
+cat (Concatenate): ఫైల్ కంటెంట్‌ని స్క్రీన్ మీద ప్రింట్ చేయడానికి. (cat file.txt)
+
+nano: బిగినర్స్ సులభంగా ఫైల్స్ ఎడిట్ చేయడానికి వాడే సింపుల్ టెర్మినల్ ఎడిటర్. (Ctrl+O తో సేవ్, Ctrl+X తో బయటికి రావచ్చు).
+
+vim: అడ్వాన్స్‌డ్ టెర్మినల్ ఎడిటర్ (i ఫర్ ఇన్సర్ట్, :wq ఫర్ సేవ్ అండ్ క్విట్).
+
+2. Advanced Text Filtering Tools (grep, sed, awk, find)
+grep (Global Regular Expression Print): ఫైల్స్‌లో నిర్దిష్టమైన పదం (Keyword) కోసం వెతకడానికి.
+
+ఉదాహరణ: grep "ERROR" system.log
+
+sed (Stream Editor): టెల్స్ట్‌ని మార్చడానికి (Find and Replace).
+
+ఉదాహరణ: sed 's/old/new/g' file.txt
+
+awk: టెక్స్ట్ మరియు కాలమ్స్ డేటాని విశ్లేషించడానికి (Pattern scanning and processing).
+
+ఉదాహరణ: awk '{print $1}' file.txt (మొదటి కాలమ్‌ని ప్రింట్ చేస్తుంది).
+
+find: ఫైల్స్ లేదా ఫోల్డర్‌ల కోసం వెతకడానికి.
+
+ఉదాహరణ: find / -name "*.log"
+
+3. Pipes (|) & Redirection (>, >>)
+Pipe (|): మొదటి కమాండ్ యొక్క అవుట్‌పుట్‌ను రెండవ కమాండ్‌కి ఇన్‌పుట్‌గా పంపడానికి వాడతారు.
+
+ఉదాహరణ: cat system.log | grep "FAIL"
+
+Redirection (>, >>):
+
+>: అవుట్‌పుట్‌ను ఫైల్‌లోకి రాయడం (పాతది ఓవర్‌రైట్ అవుతుంది).
+
+>>: అవుట్‌పుట్‌ను ఫైల్ చివరకి జోడించడం (Append, లాగ్ ఫైల్స్‌కి బెస్ట్).
