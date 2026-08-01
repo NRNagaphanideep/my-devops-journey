@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILE="test.txt"
+
+if [ -f "$FILE" ]; then
+	echo "File $FILE already exists."
+else
+	echo "File $FILE does not exist. Creating it now.."
+	touch $FILE
+fi
+

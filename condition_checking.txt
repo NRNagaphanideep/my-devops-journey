@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ls my_folder
+if [ $? -eq 0 ]; then
+	echo "Folder undi!"
+else
+	echo "Folder ledu!"
+fi
+
