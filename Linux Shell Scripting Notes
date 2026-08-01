@@ -1,0 +1,90 @@
+1. What is a Shell Script?
+A shell script is a file containing a series of Linux commands executed sequentially by the shell to automate tasks.
+
+Shebang (#!/bin/bash): The very first line of a script. It tells the operating system which interpreter (Bash Shell) should be used to execute the script.
+
+Execution Permission: Before running a script, you must give it execute permission using chmod +x script.sh.
+
+Execution: Run the script using ./script.sh.
+
+2. Variables
+Variables are used to store data temporarily inside a script.
+
+Declaration: NAME="John" (Note: No spaces around the = sign).
+
+Accessing: Always prepend a dollar sign $ to use its value (e.g., echo $NAME).
+
+3. Arguments
+Arguments allow you to pass data from the terminal into the script while running it.
+
+Positional Parameters ($1, $2, $3...): Represent the 1st, 2nd, 3rd arguments passed from the command line (e.g., ./script.sh Nginx makes $1 equal to Nginx).
+
+$0: Represents the name of the script itself.
+
+4. Exit Codes ($?)
+Every Linux command returns a status number after execution to indicate whether it succeeded or failed.
+
+$?: Stores the exit code of the immediately preceding command.
+
+0 (Zero): Indicates the command executed successfully with no errors.
+
+Non-zero (e.g., 1, 2): Indicates the command encountered an error/failure.
+
+5. Operators and Symbols Guide
+Important conditional operators and symbols used in shell scripting:
+
+! (Exclamation Mark / Logical NOT):
+
+Reverses a condition (means "NOT").
+
+Example: if [ ! -f "file.txt" ]; then means "if the file does NOT exist".
+
+Comparison & File Test Operators:
+
+-z: Checks if a variable is empty/zero length.
+
+-f: Checks if a file exists.
+
+-d: Checks if a directory/folder exists.
+
+-ne (Not Equal): Checks if two numbers are not equal (e.g., [ $? -ne 0 ] means "if exit code is not equal to 0").
+
+-le (Less than or Equal to): Checks if a number is less than or equal to another (e.g., [ $COUNT -le 3 ]).
+
+6. If-Else Statements
+if [ condition ]; then
+    # Executed if condition is true
+else
+    # Executed if condition is false
+fi
+(Note: An if block must always be closed with fi).
+
+7. Loops
+Used to repeat a block of code multiple times.
+
+A) for Loop:
+Iterates over a fixed list of items.
+
+for ITEM in item1 item2 item3
+do
+    echo "$ITEM"
+done
+
+B) while Loop:
+Continues to execute as long as a specified condition remains true.
+
+while [ $COUNT -le 3 ]
+do
+    echo "$COUNT"
+    COUNT=$((COUNT + 1)) # Increment counter to avoid infinite loop
+done
+(Note: Loops always begin with do and end with done).
+
+Headlines of Real-Time Scenarios:-
+1. System Health & Log Monitoring Script
+Concepts Used: Arguments, Variables, Exit Codes ($?), If-Else, For Loop, and While Loop.
+Scenario: Checked user-provided service status using which and exit codes, automated log file backups using a loop, and simulated a server ping test using a counter.
+
+2. Digital Shopping / User Management Setup Script
+Concepts Used: Arguments, If-Else, For Loop, and While Loop.
+Scenario: Validated user inputs from the command line, automatically created multiple user directories (user1_folder, user2_folder, user3_folder) using a for loop, and tracked setup progress using a while loop.
